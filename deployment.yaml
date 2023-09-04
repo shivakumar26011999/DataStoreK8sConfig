@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datastore
+  labels:
+    app: datastore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datastore
+  template:
+    metadata:
+      labels:
+        app: datastore
+    spec:
+      containers:
+        - name: datastore
+          image: datastore:v1.1
+          ports:
+            - containerPort: 8080
